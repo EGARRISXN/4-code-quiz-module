@@ -2,4 +2,58 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    border: 1px solid black;
+}
+
+body {
+    background-color: white;
+}
+
+p {
+    font: 1.5em;
+}
+
+h1, h2 {
+    color: blue;
+    text-align: center;
+}
+
+.main-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    height: 100vh;
+}
+
+.upper-body {
+    border: 1px solid black;
+}
+
+.hs {
+    font: 1.5em;
+    float: left;
+}
+
+.timer {
+    font: 1.5em;
+    float: right;
+}
+
+.middle-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.quiz {
+    margin-bottom: 20vh;
+}
+
+.quiz button {
+    display: block;
+    margin: 0 auto;
 }
