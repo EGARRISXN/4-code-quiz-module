@@ -1,24 +1,17 @@
+/* applies these specific features/formats to the whole page */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    border: 1px solid black;
 }
 
+/* formatting for the body */
 body {
     background-color: white;
 }
 
-p {
-    font: 1.5em;
-}
-
-h1, h2 {
-    color: blue;
-    text-align: center;
-}
-
-.main-body {
+/* formatting for all content within the body */
+main {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -26,21 +19,50 @@ h1, h2 {
     height: 100vh;
 }
 
-.upper-body {
-    border: 1px solid black;
+/* formatting for all these header texts */
+h1, h2, h3 {
+    padding: 3vh 0 3vh 0;
 }
 
-.hs {
+/* formatting for any texts in paragraphs */
+p {
+    padding-bottom: 5vh;
+}
+
+/* takes any styling away from all lists */
+li {
+    list-style: none;
+}
+
+/* format for all buttons */
+button {
+    display: block;
+    background-color: purple;
+    color: white;
+    padding: 0 15px 0 15px;
+}
+
+/* essentially the header */
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* link for high score top left of page */
+nav a {
+    color: purple;
     font: 1.5em;
-    float: left;
 }
 
+/* timer top right of page */
 .timer {
+    font-weight: bold;
     font: 1.5em;
-    float: right;
 }
 
-.middle-body {
+/* features for main box that everything is working from */
+.mid-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -49,11 +71,66 @@ h1, h2 {
     margin: 0 auto;
 }
 
-.quiz {
+/* page you see before your quiz begins */
+.quiz-start {
+    display: block;
     margin-bottom: 20vh;
+    text-align: center;
 }
 
-.quiz button {
+/* button formatting on first page */
+.quiz-start button {
     display: block;
+    background-color: purple;
+    color: white;
+    padding: 0 15px 0 15px;
     margin: 0 auto;
+}
+
+/* formatting for all quiz pages */
+.quiz {
+    margin-bottom: 20vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+/* quiz pages */
+.questions {
+    display: none;
+
+}
+
+/* page shown after quiz is over */
+.quiz-end {
+    display: none;
+}
+
+/* where you type your name in for high score */
+.submission {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+/* high score page */
+.hs-page {
+    display: none;
+}
+
+/* button formatting */
+.home-clear {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+/* home button */
+.head-home {
+    margin-right: 20px;
+}
+
+/* clear button */
+.clean-slate {
+    margin-left: auto;
 }
