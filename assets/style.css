@@ -38,7 +38,7 @@ li {
 
 /* format for all buttons */
 button {
-    background-color: rgb(30, 30, 109);
+    background-color: rgb(108, 66, 148);
     display: block;
     border: none;
     border-radius: 4px;
@@ -55,7 +55,7 @@ nav {
 
 /* link for high score top left of page */
 nav a {
-    color: purple;
+    color: rgb(108, 66, 148);
     font: 1.5em;
     text-decoration: none;
 }
@@ -99,7 +99,7 @@ nav a {
 /* quiz pages */
 .questions {
     display: none;
-    margin-bottom: 25vh;
+    margin-bottom: 20vh;
 }
 
 /* button formatting */
@@ -111,7 +111,7 @@ nav a {
 /* page shown after quiz is over */
 .quiz-end {
     display: none;
-    margin-bottom: 25vh;
+    margin-bottom: 35vh;
 }
 
 /* where you type your name in for high score */
@@ -135,8 +135,9 @@ input[type="text"] {
 
 /* high score page */
 .hs-page {
-    display: block;
-    margin-bottom: 25vh;
+    display: non;
+    margin-bottom: 30vh;
+    width: 100%;
 }
 
 /* list formatting */
@@ -155,10 +156,12 @@ input[type="text"] {
 
 /* home button */
 .head-home {
-    margin-right: 20px;
+    margin-right: 7px;
+    height: 24px;
 }
 
 /* clear button */
 .clean-slate {
-    margin-left: auto;
+    margin-left: 4px;
+    height: 24px;
 }
