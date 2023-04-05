@@ -4,11 +4,11 @@ const finalNumber = document.getElementById("final-number");
 const mostRecentScore = localStorage.getItem("mostRecentScore");
 
 const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-
+//max amount of names on score list//
 const max_high_scores = 10;
 
 finalNumber.innerText = mostRecentScore;
-
+//scores being saved to list in order//
 saveHighScore = e => {
     console.log("clicked")
 

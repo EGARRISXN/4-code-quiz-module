@@ -1,12 +1,13 @@
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-container"));
+const timeLeft = document.getElementsByClassName("time-left");
 
 let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
-let questionCounter = 0;
 let availableQuestions = [];
 
+//question and answer prompts//
 let questions = [
     {
         question: "What does HTML stand for?",
@@ -50,27 +51,24 @@ let questions = [
     }
   ]
 
-const correct_bonus = 1;
+//constants//
+const correct_bonus = 10;
 const max_questions = 5;
 
 startGame = () => {
-    questionCounter = 0;
-    score = 0;
+    timeLeft = 50;
     availableQuestions = [...questions];
     console.log(availableQuestions);
     getNewQuestion();
 };
 
+//new question is prompt//
 getNewQuestion = () => {
 
-  if(availableQuestions.length === 0 || questionCounter  >=max_questions){
+  if(availableQuestions.length === 0) {
     localStorage.setItem("mostRecentScore", "score");
     return window.location.assign("/final.html");
   }
-    questionCounter++;
-    const questionIndex = Math.floor(Math.random() * availableQuestions.length);
-    currentQuestion = availableQuestions[questionIndex];
-    question.innerText = currentQuestion.question;
 
     choices.forEach(choice => {
       const number = choice.dataset["number"];
@@ -82,19 +80,18 @@ getNewQuestion = () => {
     acceptingAnswers = true;
 };
 
+//what happens when you press an answer//
 choices.forEach(choice => {
   choice.addEventListener("click", e => {
 
     if(!acceptingAnswers) return;
 
-    acceptingAnswers = false;
+    acceptingAnswers = true;
     const selectedChoice = e.target;
     const selectedAnswer = selectedChoice.dataset["number"];
 
-    const classToApply = "incorrect";
-    if (selectedAnswer == currentQuestion.answer) {
-      classToApply = "correct";
-    }
+    const classToApply =
+    selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
 
     selectedChoice.parentElement.classlist.add(classToApply);
 

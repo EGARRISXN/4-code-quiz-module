@@ -20,7 +20,7 @@ h2 {
     margin-bottom: 1rem;
 } 
 
-
+/*the container used for every page*/
 .container {
     height: 100vh;
     width: 50%;
@@ -31,13 +31,7 @@ h2 {
     margin: 100px auto;
 }
 
-.home {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
+/*essentially the header*/
 .top-page {
     display: flex;
     flex-direction: row;
@@ -48,6 +42,7 @@ h2 {
     padding: 0 10px;
 }
 
+/*the view high score button*/
 #vhs {
     display: flex;
     text-decoration: none;
@@ -55,13 +50,17 @@ h2 {
     font-size: 1.1rem;
 }
 
+/*the countdown timer*/
 #timer {
     display: flex;
     font-size: 1.1rem;
 }
 
-.hidden {
-    display: none;
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #page-one-text {
@@ -70,10 +69,19 @@ h2 {
     text-align: center;
 }
 
+/*the questions and answers for the quiz*/
 .game-container {
     display: flex;
     flex-direction: column;
     align-items: start;
+}
+
+/*correct or incorrect pop-up*/
+#results {
+    font-size: 2.5rem;
+    text-align: start;
+    color: grey;
+    text-decoration: underline;
 }
 
 .final-container {
@@ -88,17 +96,6 @@ h2 {
     margin-bottom: 10px;
 }
 
-.btn {
-    background-color: rgb(80, 60, 104);
-    text-align: center;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    text-decoration: none;
-}
-
 .choice-container {
     display: flex;
     font-size: 1.1rem;
@@ -109,33 +106,40 @@ h2 {
     margin-bottom: .3rem;
     padding: .1rem .2rem;
     text-decoration: none;
+    opacity: 1;
+    transition: 0.5s;
 }
 
+.btn {
+    display: flex;
+    font-size: 1.1rem;
+    background-color: rgb(80, 60, 104);
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+/*modifications to button*/
 .choice-container:hover {
     cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 rgb(247, 143, 247);
-    transform: translateY(-0.1);
-    transition: transform 150ms;
+    background-color: rgb(80, 60, 104);
+    opacity: 0.6;
+
 }
 
-#results {
-    font-size: 1.8rem;
-    color: black;
-}
-
+/*modifications to button*/
 .btn:hover {
     cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 cornflowerblue;
-    transform: translateY(-0.1rem);
-    transition: 150ms;
+    background-color: rgb(80, 60, 104);
+    opacity: 0.6;
 }
 
-.btn[disabled]:hover {
-    cursor: not-allowed;
-    box-shadow: none;
-    transform: none;
-}
-
+/*score prompt*/
 .final-score{
     display: flex;
     flex-direction: row;
@@ -149,27 +153,30 @@ h2 {
     justify-content: start;
 }
 
+/*button that takes you to high score page*/
 #btn-final {
     padding: 0 5px;
 }
 
+/*text box*/
 input[type="text"] {
     height: 1.3rem;
     align-items: center;
     margin: 0 5px;
 }
 
+.high-score {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+/*pop up score list*/
 #highScoresList {
     list-style: none;
     padding-left: 0;
     margin-bottom: 4rem;
 
-}
-
-.high-score {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
 }
 
 #score-list {
