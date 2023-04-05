@@ -10,6 +10,10 @@ When arriving, press the start button. A question with four possible answers wil
 
 ## Usage
 
+![Screenshot (9)](https://user-images.githubusercontent.com/126130230/230104492-c7be63e7-5ff1-4b7c-b8b1-1db6fa93d137.png)
+![Screenshot (10)](https://user-images.githubusercontent.com/126130230/230104496-95c76998-c280-4c28-934c-c257508dd61f.png)
+![Screenshot (11)](https://user-images.githubusercontent.com/126130230/230104497-9501284c-e66b-4cf2-aba8-393f519acff3.png)
+![Screenshot (12)](https://user-images.githubusercontent.com/126130230/230104499-14ebfba8-5cc1-4b9b-8f76-d1c02621b126.png)
 
 ## Credits
 
