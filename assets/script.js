@@ -1,11 +1,12 @@
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-container"));
-const timeLeft = document.getElementsByClassName("time-left");
+
 
 let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
 let availableQuestions = [];
+let questionIndex = 0;
 
 //question and answer prompts//
 let questions = [
@@ -15,7 +16,7 @@ let questions = [
         choice2: "2 Hypertext Markup Language",
         choice3: "3 Hypertext Makeup Language",
         choice4: "4 Hypertext Markup Lesson",
-        answer: 2
+        answer: "2 Hypertext Markup Language"
       },
       {
         question: "What does CSS stand for?",
@@ -23,7 +24,7 @@ let questions = [
         choice2: "2 Cascading Server Sheets",
         choice3: "3 Counting Server Situation",
         choice4: "4 Corner Style Sheets",
-        answer: 1
+        answer: "1 Cascading Style Sheets"
       },
       {
         question: "What is JavaScript?",
@@ -31,7 +32,7 @@ let questions = [
         choice2: "2 Profound Language",
         choice3: "3 Programming Service",
         choice4: "4 Programming Language",
-        answer: 4
+        answer: "4 Programming Language"
       },
       {
         question: "What does JSON stand for?",
@@ -39,7 +40,7 @@ let questions = [
         choice2: "2 JavaScript Object Number",
         choice3: "3 JavaScript Object Notion",
         choice4: "4 JavaScript Object Narrative",
-        answer: 3
+        answer: "3 JavaScript Object Notion"
       },
       {
         question: "What is GitHub used for?",
@@ -47,7 +48,7 @@ let questions = [
         choice2: "2 Picture storage",
         choice3: "3 Recording music",
         choice4: "4 Sharing code",
-        answer: 4
+        answer: "4 Sharing code"
     }
   ]
 
@@ -59,16 +60,20 @@ startGame = () => {
     timeLeft = 50;
     availableQuestions = [...questions];
     console.log(availableQuestions);
-    getNewQuestion();
+    getNewQuestion(questionIndex);
 };
 
 //new question is prompt//
-getNewQuestion = () => {
+getNewQuestion = (questionIndex) => {
+  currentQuestion = questions[questionIndex];
 
   if(availableQuestions.length === 0) {
     localStorage.setItem("mostRecentScore", "score");
     return window.location.assign("/final.html");
   }
+
+
+  question.innerText = currentQuestion["question"];
 
     choices.forEach(choice => {
       const number = choice.dataset["number"];
@@ -83,21 +88,18 @@ getNewQuestion = () => {
 //what happens when you press an answer//
 choices.forEach(choice => {
   choice.addEventListener("click", e => {
+    const selectedChoice = e.target.innerText;
+    
+    const statusText = selectedChoice === currentQuestion['answer'] ? "Correct" : "Incorrect";
 
-    if(!acceptingAnswers) return;
-
-    acceptingAnswers = true;
-    const selectedChoice = e.target;
-    const selectedAnswer = selectedChoice.dataset["number"];
-
-    const classToApply =
-    selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
-
-    selectedChoice.parentElement.classlist.add(classToApply);
+    document.getElementById('results').innerText = statusText;
+    
+    questionIndex++;
 
     setTimeout( () => {
-      selectedChoice.parentElement.classlist.remove(classToApply);
-      getNewQuestion();
+     // selectedChoice.parentElement.classlist.remove(classToApply);
+    document.getElementById('results').innerText = '';
+      getNewQuestion(questionIndex);
     }, 1000);
 
   });
