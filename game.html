@@ -4,11 +4,10 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./assets/style.css"/>
+        <link rel="stylesheet" href="./assets/style.css" />
         <title>Code Quiz Module 4</title>
     </head>
     <body>
-
         <div class="container">
 
             <nav class="top-page">
@@ -19,15 +18,18 @@
                     <div class="time-line"></div>
                 </div>
             </nav>
-
-            <div id="home" class="home">
-                <h1>Coding Quiz Challenge!</h1>
-
-                <p id="page-one-text">Try your luck at these code-related questions in the alloted time given. Wrong answers will deduct ten seconds from your time. Scores will be logged and the high scores will be listed. ARE YOU THE BEST?</p>
+            
+            <div id="game" class="game-container">
+                <h2 id="question">Question</h2>
+                <button class="choice-container" data-number="1">Choice1</button>
+                <button class="choice-container" data-number="2">Choice2</button>
+                <button class="choice-container" data-number="3">Choice3</button>
+                <button class="choice-container" data-number="4">Choice4</button>
                 <br>
-                <br>
-                <a class="btn" id="btn-start" href="./game.html">Let's Go!</a>
+                <p id="results"></p>
             </div>
+            
         </div>
+        <script src="./assets/script.js"></script>
     </body>
 </html>

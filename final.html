@@ -8,7 +8,6 @@
         <title>Code Quiz Module 4</title>
     </head>
     <body>
-
         <div class="container">
 
             <nav class="top-page">
@@ -20,14 +19,20 @@
                 </div>
             </nav>
 
-            <div id="home" class="home">
-                <h1>Coding Quiz Challenge!</h1>
-
-                <p id="page-one-text">Try your luck at these code-related questions in the alloted time given. Wrong answers will deduct ten seconds from your time. Scores will be logged and the high scores will be listed. ARE YOU THE BEST?</p>
-                <br>
-                <br>
-                <a class="btn" id="btn-start" href="./game.html">Let's Go!</a>
+            <div id="final" class="final-container">
+                <h2>You did it!</h2>
+                <div class="final-score">
+                    <p class="final-text">Your final score is:</p>
+                    <div class="final-number"></div>
+                </div>
+                
+                <div class="submission">
+                    <p class="final-text">Enter Name:</p>
+                    <input type="text" name"username" id="username">
+                    <button class="btn" id="btn-final" onclick="saveHighScore(event)">Submit</button>
+                </div>
             </div>
         </div>
+    <script src="./assets/final.js"></script>
     </body>
 </html>
