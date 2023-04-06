@@ -1,12 +1,14 @@
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-container"));
-
+const timer = document.getElementById("timer");
 
 let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
 let availableQuestions = [];
 let questionIndex = 0;
+let timeLeft = 50;
+let timerInterval;
 
 //question and answer prompts//
 let questions = [
@@ -61,6 +63,16 @@ startGame = () => {
     availableQuestions = [...questions];
     console.log(availableQuestions);
     getNewQuestion(questionIndex);
+    timerInterval = setInterval(updateTimer, 1000);
+};
+
+updateTimer = () => {
+  timeLeft--;
+  timer.innerText = `Time left: ${timeLeft}`;
+  if (timeLeft === 0) {
+    clearInterval(timerInterval);
+    endGame();
+  }
 };
 
 //new question is prompt//
@@ -69,7 +81,9 @@ getNewQuestion = (questionIndex) => {
 
   if(availableQuestions.length === 0) {
     localStorage.setItem("mostRecentScore", "score");
-    return window.location.assign("/final.html");
+    clearInterval(timerInterval);
+    window.location.href ="final.html"
+    return;
   }
 
 
@@ -88,11 +102,20 @@ getNewQuestion = (questionIndex) => {
 //what happens when you press an answer//
 choices.forEach(choice => {
   choice.addEventListener("click", e => {
+    if (!acceptingAnswers) return;
+
+    acceptingAnswers = false;
+
     const selectedChoice = e.target.innerText;
     
     const statusText = selectedChoice === currentQuestion['answer'] ? "Correct" : "Incorrect";
 
     document.getElementById('results').innerText = statusText;
+
+    if (statusText === "Incorrect") {
+      timeLeft -= 10; // deduct
+
+    }
     
     questionIndex++;
 
